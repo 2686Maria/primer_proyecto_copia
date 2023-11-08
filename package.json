@@ -1,5 +1,6 @@
 {
   "name": "primer_proyecto_copia",
+  "type": "module",
   "version": "1.0.0",
   "description": "## What is CodeIgniter?",
   "main": "index.js",
@@ -7,6 +8,7 @@
     "test": "tests"
   },
   "scripts": {
+    "dev": "nodemon src/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
