@@ -45,12 +45,24 @@ class mascotaController{
     }
   }
 
-    async delete(req, res){
-        const mascota = req.body;
-        const [result] = await pool.query('DELETE FROM mascota WHERE id=?', [mascota.id]);
-        res.json({"Registros eliminados": result.affectedRows});
-        
+   //Funcion para eliminar una mascota por Id
+   async deleteId(req, res) {
+    try {
+      const mascota = req.body;
+      const Id = parseInt(mascota.Id);
+  
+      const [result] = await pool.query(`DELETE FROM mascota WHERE Id = ?`, [Id]);
+  
+      if (result.affectedRows === 0) {
+        return res.json({ "error": "No se encontró una mascota con el Id indicado" });
+      } else {
+        res.json({ "Registros eliminados": result.affectedRows });
+      }
+    } catch (e) {
+      console.log(e);
+      res.status(500).json({ "error": "Error en el servidor" });
     }
+  }
 
 
     async update(req, res){

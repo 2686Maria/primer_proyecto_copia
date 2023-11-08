@@ -5,10 +5,10 @@ export const router = Router()
 
 router.get('/mascota', mascota.getAll);
 
-//router.post('/mascota', mascota.add);
+router.post('/mascota', mascota.add);
 
 router.delete('/mascota', mascota.delete);
 
-//router.delete('/libroIsbn', libro.deleteIsbn);
+router.delete('/libroId', mascota.deleteId);
 
 router.get('/mascota', mascota.getOne);
